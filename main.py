@@ -24,13 +24,12 @@ async def handle_so_file(client: Client, message: Message):
     # Download the .so file
     file_path = await message.download()
 
-    # Here you could implement some process for the received .so file
-    # For now, just acknowledge the file receipt
+    # Acknowledge receipt and clarify the conversion limitation
     await message.reply("<blockquote>Received .so file. Note: Converting back to .py is not supported.</blockquote>")
 
-    # Perform any additional handling of the .so file if needed
+    # Implement any additional handling of the .so file if needed
 
-    # Clean up
+    # Clean up the downloaded file
     if os.path.exists(file_path):
         os.remove(file_path)
 
